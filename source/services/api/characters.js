@@ -1,5 +1,5 @@
-export default (api, params) => ({
+export default (api, defaultParams) => ({
 
-  fetch: () => api.get('/characters', { params })
+  fetch: params => api.get('/characters', { params: { ...params, ...defaultParams } })
 
 });

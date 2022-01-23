@@ -16,9 +16,7 @@ const getParams = () => {
   return {
     apikey: public_key,
     ts,
-    hash,
-    limit: 30,
-    offset: 0
+    hash
   };
 }
 

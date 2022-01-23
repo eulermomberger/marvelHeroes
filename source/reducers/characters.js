@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
   board: {
     characters: [],
-    page: 1,
+    offset: 0,
     refresh: false,
     total: 0
   }
@@ -21,14 +21,14 @@ export default (state = INITIAL_STATE, action = {}) => {
     }
 
     case 'SET_CHARACTERS_BOARD': {
-      const { page } = action.payload;
+      const { offset } = action.payload;
       let { characters, total } = action.payload;
 
       if (characters.length == 0) {
         total = state.board.characters.length;
       }
 
-      if (page > 0) {
+      if (offset > 0) {
         characters = state.board.characters.concat(characters);
       }
 
@@ -36,7 +36,7 @@ export default (state = INITIAL_STATE, action = {}) => {
         ...state,
         board: {
           characters,
-          page,
+          offset,
           total,
           refresh: false
         }

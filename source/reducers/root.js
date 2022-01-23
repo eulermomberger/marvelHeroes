@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import characters from './characters';
+import ui from './ui';
 
 const reducers = combineReducers({
-  characters
+  characters,
+  ui
 });
 
 export default (state, action) => {

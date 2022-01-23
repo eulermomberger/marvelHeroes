@@ -5,7 +5,6 @@ export const refreshCharactersBoard = () => {
 };
 
 export const setCharactersBoard = payload => {
-  console.log(payload)
   return {
     type: 'SET_CHARACTERS_BOARD',
     payload
