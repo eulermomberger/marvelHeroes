@@ -10,3 +10,16 @@ export const setCharactersBoard = payload => {
     payload
   };
 };
+
+export const resetCharactersShow = () => {
+  return {
+    type: 'RESET_CHARACTERS_SHOW'
+  };
+};
+
+export const setCharactersShow = character => {
+  return {
+    type: 'SET_CHARACTERS_SHOW',
+    payload: character
+  };
+};

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import CharactersBoard from '../../components/characters/board';
@@ -8,7 +8,7 @@ import * as charactersActions from '../../actions/characters';
 import * as uiActions from '../../actions/ui';
 import api from '../../services/api';
 
-export default () => {
+export default props => {
 
   const board = useSelector(state => state.characters.board);
   const dispatch = useDispatch();
@@ -42,10 +42,12 @@ export default () => {
     _getCharacters(20 + board.offset);
   }
 
+  const { navigation } = props;
   return (
     <SafeAreaView style={styles.board}>
       <CharactersBoard
         characters={board.characters}
+        navigation={navigation}
         onEndReached={_onEndReached}
       />
     </SafeAreaView>

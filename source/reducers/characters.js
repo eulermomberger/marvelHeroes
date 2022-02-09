@@ -4,7 +4,8 @@ const INITIAL_STATE = {
     offset: 0,
     refresh: false,
     total: 0
-  }
+  },
+  show: {}
 };
 
 export default (state = INITIAL_STATE, action = {}) => {
@@ -40,6 +41,20 @@ export default (state = INITIAL_STATE, action = {}) => {
           total,
           refresh: false
         }
+      };
+    }
+
+    case 'RESET_CHARACTERS_SHOW': {
+      return {
+        ...state,
+        show: {}
+      };
+    }
+
+    case 'SET_CHARACTERS_SHOW': {
+      return {
+        ...state,
+        show: action.payload
       };
     }
 

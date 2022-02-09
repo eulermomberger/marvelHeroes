@@ -1,33 +1,37 @@
 import React from 'react';
-import { FlatList, Image, View, Text, StyleSheet } from 'react-native';
+import { FlatList, Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default props => {
 
+  const _goToShowScreen = character => {
+    const { navigation } = props;
+    navigation.navigate('CharacteresShowScreen', { id: character.id })
+  }
+
   const renderCharacters = ({ item: character }) => {
     return (
-      <View style={styles.cardCharacter}>
-        <Image
-          style={styles.image}
-          source={{ uri: `${character.thumbnail.path}.${character.thumbnail.extension}` }}
-        />
-        <View style={styles.viewDetails}>
-          <Text style={styles.textName}>
-            {character.name}
-          </Text>
-          <Text style={styles.textSeeMore}>
-            Ver mais...
-          </Text>
+      <TouchableOpacity onPress={() => _goToShowScreen(character)}>
+        <View style={styles.cardCharacter}>
+          <Image
+            style={styles.image}
+            source={{ uri: `${character.thumbnail.path}.${character.thumbnail.extension}` }}
+          />
+          <View style={styles.viewDetails}>
+            <Text style={styles.textName}>
+              {character.name}
+            </Text>
+            <Text style={styles.textSeeMore}>
+              Ver mais...
+            </Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 
   const renderHeader = () => {
     return (
       <>
-        <View style={styles.viewLogo}>
-          <Image style={styles.imgLogo} source={require('../../../../assets/images/marvel-logo.png')} />
-        </View>
         <View style={styles.viewText}>
           <Text style={styles.textTitle}>LISTA DE PERSONAGENS DA MARVEL</Text>
         </View>
@@ -50,15 +54,6 @@ export default props => {
 }
 
 const styles = StyleSheet.create({
-
-  viewLogo: {
-    alignItems: 'center'
-  },
-
-  imgLogo: {
-    height: 40,
-    width: 100
-  },
 
   viewText: {
     paddingHorizontal: 25,
