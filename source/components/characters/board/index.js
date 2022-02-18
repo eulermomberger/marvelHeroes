@@ -56,8 +56,9 @@ export default props => {
 const styles = StyleSheet.create({
 
   viewText: {
-    paddingHorizontal: 25,
-    marginVertical: 25
+    paddingHorizontal: 20,
+    marginTop: 5,
+    marginBottom: 20
   },
 
   textTitle: {
@@ -67,8 +68,8 @@ const styles = StyleSheet.create({
   },
 
   cardCharacter: {
-    paddingHorizontal: 25,
-    marginBottom: 25
+    paddingHorizontal: 20,
+    marginBottom: 20
   },
 
   image: {

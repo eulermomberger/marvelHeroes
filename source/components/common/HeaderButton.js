@@ -7,7 +7,7 @@ export default props => {
 
   return (
     <TouchableOpacity onPress={() => navigation.goBack()}>
-      <View style={{ paddingLeft: 20 }}>
+      <View style={{ paddingLeft: 20, paddingBottom: 20 }}>
         <FontAwesome5
           name='chevron-left'
           color='#FFF'

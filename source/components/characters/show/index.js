@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   viewName: {
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingTop: 20
+    paddingTop: 5
   },
 
   title: {

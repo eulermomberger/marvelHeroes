@@ -4,9 +4,9 @@
     "slug": "marvelHeroes",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./assets/marvel-logo.png",
+      "image": "./assets/images/marvel-logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#1B1B1B"
     },
@@ -21,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#1B1B1B"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/images/icon.png"
     }
   }
 }
