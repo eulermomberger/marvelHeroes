@@ -1,7 +1,17 @@
 import React from 'react';
 import { FlatList, Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { FontAwesome5 } from '@expo/vector-icons';
+
+import * as uiActions from '../../../actions/ui';
 
 export default props => {
+
+  const dispatch = useDispatch();
+
+  const _goToSearchScreen = () => {
+    dispatch(uiActions.setVisibleModalFilter(true));
+  }
 
   const _goToShowScreen = character => {
     const { navigation } = props;
@@ -32,8 +42,15 @@ export default props => {
   const renderHeader = () => {
     return (
       <>
-        <View style={styles.viewText}>
+        <View style={styles.viewHeader}>
           <Text style={styles.textTitle}>LISTA DE PERSONAGENS DA MARVEL</Text>
+          <TouchableOpacity style={styles.buttonSearch} onPress={_goToSearchScreen}>
+            <FontAwesome5
+              name='search'
+              color='#FFF'
+              size={20}
+            />
+          </TouchableOpacity>
         </View>
       </>
     );
@@ -55,16 +72,24 @@ export default props => {
 
 const styles = StyleSheet.create({
 
-  viewText: {
+  viewHeader: {
     paddingHorizontal: 20,
     marginTop: 5,
-    marginBottom: 20
+    marginBottom: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
 
   textTitle: {
     color: '#FFF',
     fontSize: 22,
-    fontFamily: 'Bebas Neue'
+    fontFamily: 'Bebas Neue',
+    flex: 6
+  },
+
+  buttonSearch: {
+    flex: 1,
+    alignItems: 'flex-end'
   },
 
   cardCharacter: {

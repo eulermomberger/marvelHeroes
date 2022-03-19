@@ -1,7 +1,10 @@
 const INITIAL_STATE = {
   board: {
     characters: [],
-    offset: 0,
+    params: {
+      offset: 0,
+      nameStartsWith: null
+    },
     refresh: false,
     total: 0
   },
@@ -22,14 +25,14 @@ export default (state = INITIAL_STATE, action = {}) => {
     }
 
     case 'SET_CHARACTERS_BOARD': {
-      const { offset } = action.payload;
+      const { params } = action.payload;
       let { characters, total } = action.payload;
 
       if (characters.length == 0) {
         total = state.board.characters.length;
       }
 
-      if (offset > 0) {
+      if (params?.offset > 0) {
         characters = state.board.characters.concat(characters);
       }
 
@@ -37,7 +40,7 @@ export default (state = INITIAL_STATE, action = {}) => {
         ...state,
         board: {
           characters,
-          offset,
+          params,
           total,
           refresh: false
         }

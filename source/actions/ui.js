@@ -4,3 +4,10 @@ export const setSpinner = payload => {
     payload
   };
 }
+
+export const setVisibleModalFilter = visible => {
+  return {
+    type: 'SET_VISIBLE_MODAL_FILTER',
+    payload: visible
+  };
+}

@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import CharactersBoard from '../../components/characters/board';
+import ModalFilter from '../../components/characters/board/ModalFilter';
 
 import * as charactersActions from '../../actions/characters';
 import * as uiActions from '../../actions/ui';
@@ -21,10 +22,10 @@ export default props => {
     try {
       dispatch(uiActions.setSpinner(true));
 
-      const { data } = await api.characters.fetch({ offset, limit: 20 });
+      const { data } = await api.characters.fetch({ ...board.params, offset, limit: 20 });
       dispatch(charactersActions.setCharactersBoard({
         characters: data.data.results,
-        offset,
+        params: { ...board.params, offset },
         total: data.data.total
       }));
 
@@ -39,18 +40,22 @@ export default props => {
       return;
     }
 
-    _getCharacters(20 + board.offset);
+    _getCharacters(20 + board.params?.offset);
   }
 
   const { navigation } = props;
   return (
-    <SafeAreaView style={styles.board}>
-      <CharactersBoard
-        characters={board.characters}
-        navigation={navigation}
-        onEndReached={_onEndReached}
-      />
-    </SafeAreaView>
+    <>
+      <SafeAreaView style={styles.board}>
+        <CharactersBoard
+          characters={board.characters}
+          navigation={navigation}
+          onEndReached={_onEndReached}
+        />
+      </SafeAreaView>
+
+      <ModalFilter/>
+    </>
   );
 }
 

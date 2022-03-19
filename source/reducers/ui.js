@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-  spinner: false
+  spinner: false,
+  visibleModalFilter: false
 };
 
 export default (state = INITIAL_STATE, action = {}) => {
@@ -9,6 +10,13 @@ export default (state = INITIAL_STATE, action = {}) => {
       return {
         ...state,
         spinner: action.payload
+      };
+    }
+
+    case 'SET_VISIBLE_MODAL_FILTER': {
+      return {
+        ...state,
+        visibleModalFilter: action.payload
       };
     }
 
