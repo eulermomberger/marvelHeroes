@@ -9,16 +9,15 @@ import * as charactersActions from '../../actions/characters';
 import * as uiActions from '../../actions/ui';
 import api from '../../services/api';
 
-export default props => {
-
-  const board = useSelector(state => state.characters.board);
+export default function BoardScreen(props) {
+  const board = useSelector((state) => state.characters.board);
   const dispatch = useDispatch();
 
   useEffect(() => {
     _getCharacters(0);
   }, []);
 
-  const _getCharacters = async offset => {
+  const _getCharacters = async (offset) => {
     try {
       dispatch(uiActions.setSpinner(true));
 
@@ -26,22 +25,22 @@ export default props => {
       dispatch(charactersActions.setCharactersBoard({
         characters: data.data.results,
         params: { ...board.params, offset },
-        total: data.data.total
+        total: data.data.total,
       }));
 
       dispatch(uiActions.setSpinner(false));
     } catch {
       dispatch(uiActions.setSpinner(false));
     }
-  }
+  };
 
   const _onEndReached = () => {
     if (board.total <= board.characters.length) {
       return;
     }
 
-    _getCharacters(20 + board.params?.offset);
-  }
+    _getCharacters(20 + (board.params?.offset || 0));
+  };
 
   const { navigation } = props;
   return (
@@ -54,7 +53,7 @@ export default props => {
         />
       </SafeAreaView>
 
-      <ModalFilter/>
+      <ModalFilter />
     </>
   );
 }
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
 
   board: {
     flex: 1,
-    backgroundColor: '#1B1B1B'
-  }
+    backgroundColor: '#1B1B1B',
+  },
 
 });

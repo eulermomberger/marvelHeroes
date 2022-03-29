@@ -1,15 +1,17 @@
 import React from 'react';
-import { ActivityIndicator, Modal, StyleSheet, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Modal,
+  StyleSheet,
+  View,
+} from 'react-native';
 import { useSelector } from 'react-redux';
 
-export default () => {
-  const spinner = useSelector(state => state.ui.spinner);
+export default function Spinner() {
+  const spinner = useSelector((state) => state.ui.spinner);
 
   return (
-    <Modal
-      transparent={true}
-      visible={spinner}
-    >
+    <Modal transparent visible={spinner}>
       <View style={styles.wrapper}>
         <ActivityIndicator
           animating={spinner}
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  }
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
 
 });

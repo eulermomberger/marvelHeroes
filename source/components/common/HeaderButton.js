@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-export default props => {
+export default function HeaderButton(props) {
   const { navigation } = props;
 
   return (
@@ -16,4 +16,4 @@ export default props => {
       </View>
     </TouchableOpacity>
   );
-};
+}

@@ -5,9 +5,7 @@ import ui from './ui';
 
 const reducers = combineReducers({
   characters,
-  ui
+  ui,
 });
 
-export default (state, action) => {
-  return reducers(state, action);
-}
+export default (state, action) => reducers(state, action);

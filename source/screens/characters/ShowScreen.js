@@ -8,8 +8,8 @@ import * as charactersActions from '../../actions/characters';
 import * as uiActions from '../../actions/ui';
 import api from '../../services/api';
 
-export default props => {
-  const character = useSelector(state => state.characters.show);
+export default function ShowScreen(props) {
+  const character = useSelector((state) => state.characters.show);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default props => {
 
     return () => {
       dispatch(charactersActions.resetCharactersShow());
-    }
+    };
   }, []);
 
   const _getCharacter = async () => {
@@ -32,7 +32,7 @@ export default props => {
     } catch {
       dispatch(uiActions.setSpinner(false));
     }
-  }
+  };
 
   return (
     <ScrollView style={styles.board}>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 
   board: {
     flex: 1,
-    backgroundColor: '#1B1B1B'
-  }
+    backgroundColor: '#1B1B1B',
+  },
 
 });

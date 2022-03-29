@@ -3,24 +3,23 @@ const INITIAL_STATE = {
     characters: [],
     params: {
       offset: 0,
-      nameStartsWith: null
+      nameStartsWith: null,
     },
     refresh: false,
-    total: 0
+    total: 0,
   },
-  show: {}
+  show: {},
 };
 
 export default (state = INITIAL_STATE, action = {}) => {
   switch (action.type) {
-
     case 'REFRESH_CHARACTERS_BOARD': {
       return {
         ...state,
         board: {
           ...state.board,
-          refresh: true
-        }
+          refresh: true,
+        },
       };
     }
 
@@ -28,7 +27,7 @@ export default (state = INITIAL_STATE, action = {}) => {
       const { params } = action.payload;
       let { characters, total } = action.payload;
 
-      if (characters.length == 0) {
+      if (characters.length === 0) {
         total = state.board.characters.length;
       }
 
@@ -42,22 +41,22 @@ export default (state = INITIAL_STATE, action = {}) => {
           characters,
           params,
           total,
-          refresh: false
-        }
+          refresh: false,
+        },
       };
     }
 
     case 'RESET_CHARACTERS_SHOW': {
       return {
         ...state,
-        show: {}
+        show: {},
       };
     }
 
     case 'SET_CHARACTERS_SHOW': {
       return {
         ...state,
-        show: action.payload
+        show: action.payload,
       };
     }
 
@@ -65,4 +64,4 @@ export default (state = INITIAL_STATE, action = {}) => {
       return state;
     }
   }
-}
+};

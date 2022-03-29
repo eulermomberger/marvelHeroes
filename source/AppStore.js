@@ -11,15 +11,17 @@ const enhancers = [];
 
 const composedEnhancers = composeEnhancers(
   applyMiddleware(...middlewares),
-  ...enhancers
+  ...enhancers,
 );
 
 const store = createStore(reducers, composedEnhancers);
 
-export default props => {
+export default function AppStore(props) {
+  const { children } = props;
+
   return (
     <Provider store={store}>
-      {props.children}
+      {children}
     </Provider>
   );
 }

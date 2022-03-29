@@ -8,7 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  View
+  View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesome } from '@expo/vector-icons';
@@ -17,10 +17,9 @@ import * as charactersActions from '../../../actions/characters';
 import * as uiActions from '../../../actions/ui';
 import api from '../../../services/api';
 
-export default () => {
-
-  const visible = useSelector(state => state.ui.visibleModalFilter);
-  const nameStartsWith = useSelector(state => state.characters.board?.params?.nameStartsWith);
+export default function ModalFilter() {
+  const visible = useSelector((state) => state.ui.visibleModalFilter);
+  const nameStartsWith = useSelector((state) => state.characters.board?.params?.nameStartsWith);
 
   const [name, setName] = useState(nameStartsWith);
 
@@ -28,7 +27,7 @@ export default () => {
 
   const _closeModal = () => {
     dispatch(uiActions.setVisibleModalFilter(false));
-  }
+  };
 
   const _getCharacters = async () => {
     try {
@@ -36,7 +35,7 @@ export default () => {
 
       const params = { offset: 0, limit: 20 };
 
-      if (name && name != '') {
+      if (name && name !== '') {
         params.nameStartsWith = name;
       }
 
@@ -45,7 +44,7 @@ export default () => {
       dispatch(charactersActions.setCharactersBoard({
         characters: data.data.results,
         params: { offset: 0, nameStartsWith: name },
-        total: data.data.total
+        total: data.data.total,
       }));
 
       _closeModal();
@@ -53,10 +52,10 @@ export default () => {
     } catch {
       dispatch(uiActions.setSpinner(false));
     }
-  }
+  };
 
   return (
-    <Modal visible={visible} transparent={true} animationType='slide'>
+    <Modal visible={visible} transparent animationType='slide'>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <SafeAreaView style={styles.safeAreaModal}>
           <View style={styles.containerModal}>
@@ -71,10 +70,10 @@ export default () => {
             <View style={styles.bodyModal}>
               <View style={styles.viewInput}>
                 <TextInput
-                  autoFocus={true}
+                  autoFocus
                   placeholder='Nome'
                   placeholderTextColor='#000'
-                  onChangeText={value => setName(value)}
+                  onChangeText={(value) => setName(value)}
                   value={name}
                   style={styles.inputName}
                 />
@@ -90,14 +89,13 @@ export default () => {
       </TouchableWithoutFeedback>
     </Modal>
   );
-
 }
 
 const styles = StyleSheet.create({
 
   safeAreaModal: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   containerModal: {
@@ -107,7 +105,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     height: 200,
     width: '95%',
-    borderRadius: 20
+    borderRadius: 20,
   },
 
   headerModal: {
@@ -117,7 +115,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    flex: 2
+    flex: 2,
   },
 
   bodyModal: {
@@ -131,17 +129,17 @@ const styles = StyleSheet.create({
     height: 30,
     backgroundColor: '#FFF',
     borderRadius: 50,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 
   inputName: {
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
 
   footerModal: {
     flex: 1,
     paddingHorizontal: 10,
-    paddingVertical: 15
+    paddingVertical: 15,
   },
 
   buttonFilter: {
@@ -149,13 +147,13 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     width: '100%',
     height: 30,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 
   textFilter: {
     color: '#FFF',
     textAlign: 'center',
-    textAlignVertical: 'center'
-  }
+    textAlignVertical: 'center',
+  },
 
 });
