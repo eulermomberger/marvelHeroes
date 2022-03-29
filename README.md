@@ -2,7 +2,7 @@
 
 A React Native Expo app that displays Marvel characters using the API available at https://developer.marvel.com/
 
-<div style="display: flex; justify-content: center;">
+<div align="center">
   <h4>⚠️ 🚀 Work in progress... ⚠️</h4>
 </div>
 
@@ -10,18 +10,10 @@ A React Native Expo app that displays Marvel characters using the API available 
 
 ## App screenshots
 
-<div style="display: flex;">
-  <div style="display: flex; flex-direction: column; margin-right: 10px;">
-    <span>Main screen</span>
-    <img src="./github/Screenshot1.png" height="300px">
-  </div>
-  <div style="display: flex; flex-direction: column; margin-left: 10px;">
-    <span>Character screen</span>
-    <img src="./github/Screenshot2.png" height="300px">
-  </div>
-</div>
+|Main screen|Character screen|
+|---|---
+|<img src="./github/Screenshot1.png" height="400px">|<img src="./github/Screenshot2.png" height="400px">
 
-<br>
 <br>
 
 ## Run the project
@@ -33,26 +25,36 @@ npm run android / run ios
 <br>
 
 ## Technologies used
-<div style="display: flex; flex-direction: column;">
-  <a href="https://reactnative.dev" style="display: flex; align-items: center;">
+
+<li>
+  <a href="https://reactnative.dev">
     <img align="center" alt="React native logo" height="15" width="15" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
-    <h4 style="margin-left: 10px;">React Native</h4>
+    React Native
   </a>
-  <a href="https://redux.js.org/" style="display: flex; align-items: center;">
+</li>
+
+<li>
+  <a href="https://redux.js.org/">
     <img align="center" alt="Redux logo" height="15" width="15" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg">
-    <h4 style="margin-left: 10px;">Redux</h4>
+    Redux
   </a>
-  <a href="https://react-redux.js.org/" style="display: flex; align-items: center;">
+</li>
+
+<li>
+  <a href="https://react-redux.js.org/">
     <img align="center" alt="React redux logo" height="15" width="15" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
     +
     <img align="center" alt="React native logo" height="15" width="15" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg">
-    <h4 style="margin-left: 10px;">React Redux</h4>
+    React Redux
   </a>
-  <a href="https://expo.dev/" style="display: flex; align-items: center;">
+</li>
+
+<li>
+  <a href="https://expo.dev/">
     <img align="center" alt="Expo logo" height="15" width="15" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/expo.svg">
-    <h4 style="margin-left: 10px;">React Redux</h4>
+    React Redux
   </a>
-</div>
+</li>
 
 <br>
 <br>
